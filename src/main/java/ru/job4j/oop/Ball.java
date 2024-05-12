@@ -5,7 +5,7 @@ public class Ball {
         if (condition) {
             System.out.println("колобок съеден");
         } else {
-            System.out.println("колобок сбежал");
+            System.out.println("колобок сбежалл");
         }
     }
 }
