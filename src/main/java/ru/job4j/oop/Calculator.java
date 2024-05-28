@@ -12,7 +12,7 @@ public class Calculator {
     }
 
     public static int minus(int r) {
-        return x - r;
+        return r - x;
     }
 
     public int divide(int c) {
@@ -33,7 +33,7 @@ public class Calculator {
         System.out.println("Minus result: " + result);
         result = calculator.divide(99);
         System.out.println("Divide result: " + result);
-        result = calculator.sumAllOperation(0);
+        result = calculator.sumAllOperation(2);
         System.out.println("Sum of all operations: " + result);
     }
 }
