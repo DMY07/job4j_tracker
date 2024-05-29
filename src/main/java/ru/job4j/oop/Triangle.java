@@ -3,34 +3,39 @@ package ru.job4j.oop;
 import static java.lang.Math.sqrt;
 
 public class Triangle {
-    private Point one;
-    private Point two;
-    private Point three;
+    private static int x = 5;
 
-    public Triangle(Point ap, Point bp, Point cp) {
-        this.one = ap;
-        this.two = bp;
-        this.three = cp;
-    }
-//тест тт
-
-    public double semiPerimeter(double a, double b, double c) {
-        return (a + b + c) / 2;
+    public int multiply(int a) {
+        return x * a;
     }
 
-    public boolean exist(double ab, double ac, double bc) {
-        return ab + ac > bc && ab + bc > ac && ac + bc > ab;
+    public static int sum(int y) {
+        return x + y;
     }
 
-    public double area() {
-        double result = -1;
-        double ab = one.distance(two);
-        double ac = one.distance(three);
-        double bc = two.distance(three);
-        if (exist(ab, ac, bc)) {
-            double p = semiPerimeter(ab, ac, bc);
-            result = sqrt(p * (p - ab) * (p - ac) * (p - bc));
-        }
-        return result;
+    public static int minus(int r) {
+        return r - x;
+    }
+
+    public int divide(int c) {
+        return c / x;
+    }
+
+    public int sumAllOperation(int l) {
+        return multiply(l) + sum(l) + minus(l) + divide(l);
+    }
+
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        int result = calculator.multiply(3);
+        System.out.println("Multiply result: " + result);
+        result = calculator.sum(7);
+        System.out.println("Sum result: " + result);
+        result = calculator.minus(12);
+        System.out.println("Minus result: " + result);
+        result = calculator.divide(99);
+        System.out.println("Divide result: " + result);
+        result = calculator.sumAllOperation(2);
+        System.out.println("Sum of all operations: " + result);
     }
 }
