@@ -1,7 +1,6 @@
 package ru.job4j.oop;
 
 import static java.lang.Math.sqrt;
-import static java.lang.Math.pow;
 
 public class Triangle {
     private Point first;
@@ -13,7 +12,7 @@ public class Triangle {
         this.second = bp;
         this.third = cp;
     }
-//тест
+//тест тт
 
     public double semiPerimeter(double a, double b, double c) {
         return (a + b + c) / 2;
