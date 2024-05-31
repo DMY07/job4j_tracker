@@ -32,5 +32,6 @@ public class Triangle {
         return result;
     }
 }
+/* написать формулу для расчета площади треугольника. */
 
 
