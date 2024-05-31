@@ -1,41 +1,36 @@
 package ru.job4j.oop;
-
 import static java.lang.Math.sqrt;
 
 public class Triangle {
-    private static int x = 5;
+    private Point first;
+    private Point second;
+    private Point third;
 
-    public int multiply(int a) {
-        return x * a;
+    public Triangle(Point ap, Point bp, Point cp) {
+        this.first = ap;
+        this.second = bp;
+        this.third = cp;
     }
 
-    public static int sum(int y) {
-        return x + y;
+    public double semiPerimeter(double a, double b, double c) {
+        return (a + b + c) / 2;
     }
 
-    public static int minus(int r) {
-        return r - x;
+    public boolean exist(double ab, double ac, double bc) {
+        return ab + ac > bc && ab + bc > ac && ac + bc > ab;
     }
 
-    public int divide(int c) {
-        return c / x;
-    }
-
-    public int sumAllOperation(int l) {
-        return multiply(l) + sum(l) + minus(l) + divide(l);
-    }
-
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        int result = calculator.multiply(3);
-        System.out.println("Multiply result: " + result);
-        result = calculator.sum(7);
-        System.out.println("Sum result: " + result);
-        result = calculator.minus(12);
-        System.out.println("Minus result: " + result);
-        result = calculator.divide(99);
-        System.out.println("Divide result: " + result);
-        result = calculator.sumAllOperation(2);
-        System.out.println("Sum of all operations: " + result);
+    public double area() {
+        double result = -1;
+        double ab = first.distance(second);
+        double ac = first.distance(third);
+        double bc = second.distance(third);
+        if (exist(ab, ac, bc)) {
+            double p = semiPerimeter(ab, ac, bc);
+            result = sqrt(p * (p - ab) * (p - ac) * (p - bc));
+        }
+        return result;
     }
 }
+
+
