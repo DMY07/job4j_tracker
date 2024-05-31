@@ -8,7 +8,6 @@ public class Point {
     private int x;
 
     private int y;
-    /* написать формулу для расчета площади треугольника. */
 
     public Point(int first, int second) {
         this.x = first;
