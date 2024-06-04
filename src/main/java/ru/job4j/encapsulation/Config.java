@@ -3,13 +3,13 @@ package ru.job4j.encapsulation;
 public class Config {
     String name;
     private int position;
-    public String[] properties;
+    private String[] properties;
 
     public Config(String name) {
         this.name = name;
     }
 
-    void print() {
+    public void print() {
         System.out.println(position);
     }
 
