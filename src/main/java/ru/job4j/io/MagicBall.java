@@ -12,6 +12,6 @@ public class MagicBall {
         System.out.print("Я великий Оракул. Что ты хочешь узнать? ");
         String question = input.nextLine();
         int answer = new Random().nextInt(3);
-        System.out.println("Ответ великого Оракула: " + answers[answer]);
+        System.out.println("Ответ великого Оракула:  " + answers[answer]);
     }
 }
