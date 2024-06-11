@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class MagicBall {
 
-    static String[] answers = {"Да", "Нет", "Может быть"};
+    private static String[] answers = {"Да", "Нет", "Может быть"};
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
