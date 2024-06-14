@@ -57,7 +57,7 @@ public class StartUI {
 
     public static void findItemByName(Input input, Tracker tracker) {
         System.out.println("=== Вывод заявок по имени ===");
-        String name = input.askStr("Введите имя:  ");
+        String name = input.askStr("Введите имя: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
