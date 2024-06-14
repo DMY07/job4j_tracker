@@ -18,3 +18,5 @@ public class StubOutput implements Output {
         return buffer.toString();
     }
 }
+
+/* n */
