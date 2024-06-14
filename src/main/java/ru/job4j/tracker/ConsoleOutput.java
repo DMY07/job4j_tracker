@@ -6,4 +6,4 @@ public class ConsoleOutput implements Output {
         System.out.println(object);
     }
 }
-/* n */
+/* n1 */
