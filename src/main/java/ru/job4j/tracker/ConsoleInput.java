@@ -15,4 +15,4 @@ public class ConsoleInput implements Input {
         return Integer.parseInt(askStr(question));
     }
 }
-/* n1 */
+/* n11 */
