@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.tracker.action.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
@@ -15,8 +17,8 @@ class StartUITest {
                 new String[]{"0", String.valueOf(one.getId()), replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new ReplaceAction(output),
-                new ExitAction(output)
+                new Replace(output),
+                new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
@@ -42,8 +44,8 @@ class StartUITest {
                 new String[]{"0", "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new FindAllAction(output),
-                new ExitAction(output)
+                new FindAll(output),
+                new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
@@ -69,8 +71,8 @@ class StartUITest {
                 new String[]{"0", String.valueOf(one.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new FindByIdAction(output),
-                new ExitAction(output)
+                new FindById(output),
+                new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
@@ -96,8 +98,8 @@ class StartUITest {
                 new String[]{"0", "test1", "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new FindByNameAction(output),
-                new ExitAction(output)
+                new FindByName(output),
+                new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
