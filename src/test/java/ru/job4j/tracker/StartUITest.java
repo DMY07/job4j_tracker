@@ -114,4 +114,3 @@ class StartUITest {
         );
     }
 }
-/* т1 */
