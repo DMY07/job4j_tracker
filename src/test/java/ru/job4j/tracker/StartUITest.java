@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
@@ -25,7 +24,7 @@ class StartUITest {
                 "Меню:" + ln
                         + "0. Изменить заявку" + ln
                         + "1. Завершить программу" + ln
-                        + "=== Редактирование заявки ===" + ln
+                        + "=== Изменение заявки ===" + ln
                         + "Заявка изменена успешно." + ln
                         + "Меню:" + ln
                         + "0. Изменить заявку" + ln
