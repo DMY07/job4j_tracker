@@ -8,4 +8,4 @@ public class ConsoleOutput implements Output {
         System.out.println(object);
     }
 }
-/* n12 */
+/* т */

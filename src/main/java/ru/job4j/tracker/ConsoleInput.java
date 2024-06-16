@@ -17,4 +17,4 @@ public class ConsoleInput implements Input {
         return Integer.parseInt(askStr(question));
     }
 }
-/* n12 */
+/* т */
