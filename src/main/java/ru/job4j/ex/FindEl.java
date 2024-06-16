@@ -13,7 +13,7 @@ public class FindEl {
     public static void main(String[] args) {
         String[] array = {"ноль", "один", "два"};
         try {
-            int index = indexOf(array, "ноль"); //
+            int index = indexOf(array, "ноль");
             System.out.println("ноль': " + index);
             index = indexOf(array, "один");
             System.out.println("один': " + index);

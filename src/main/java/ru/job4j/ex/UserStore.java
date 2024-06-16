@@ -24,8 +24,8 @@ public class UserStore {
     public static void main(String[] args) {
         User[] users = {
                 new User("Petr Arsentev", true),
-                new User("Pa", true),          // Example of invalid user (username < 3 characters)
-                new User("John Doe", false)    // Example of invalid user (not valid)
+                new User("Pa", true),
+                new User("John Doe", false)
         };
         try {
             User user = findUser(users, "Petr Arsentev");
