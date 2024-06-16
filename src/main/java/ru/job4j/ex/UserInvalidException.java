@@ -6,3 +6,4 @@ public class UserInvalidException extends UserNotFoundException {
         super(message);
     }
 }
+/* т */
