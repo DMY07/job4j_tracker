@@ -3,6 +3,8 @@ package ru.job4j.tracker;
 import org.junit.jupiter.api.Test;
 import ru.job4j.tracker.action.*;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
@@ -20,7 +22,7 @@ class StartUITest {
                 new ReplaceAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -47,7 +49,7 @@ class StartUITest {
                 new FindAllAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -74,7 +76,7 @@ class StartUITest {
                 new FindByIdAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -101,7 +103,7 @@ class StartUITest {
                 new FindByNameAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -126,7 +128,7 @@ class StartUITest {
         UserAction[] actions = new UserAction[]{
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
