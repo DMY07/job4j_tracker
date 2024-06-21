@@ -22,7 +22,9 @@ public class PhoneDictionaryTest {
     void whenNoResult() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("NonExistingKey");
+        List<Person> persons = phones.find("No_Key");
         assertThat(persons).isEmpty();
     }
 }
+
+/* т */
