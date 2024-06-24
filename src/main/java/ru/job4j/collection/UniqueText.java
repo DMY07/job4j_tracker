@@ -3,7 +3,6 @@ package ru.job4j.collection;
 import java.util.HashSet;
 
 public class UniqueText {
-    @SuppressWarnings("checkstyle:EmptyBlock")
     public boolean isEquals(String originText, String duplicateText) {
         boolean result = true;
         String[] origin = originText.split(" ");
@@ -13,10 +12,11 @@ public class UniqueText {
             check.add(origins);
         }
         for (String texts : text) {
-        if (!check.contains(texts)) {
-            result = false;
+            if (!check.contains(texts)) {
+                result = false;
+                break;
+            }
         }
-    }
 
         return result;
     }
