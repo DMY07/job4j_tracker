@@ -1,5 +1,6 @@
 package ru.job4j.queue;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class AppleStore {
@@ -8,37 +9,30 @@ public class AppleStore {
     private final int count;
 
     public AppleStore(Queue<Customer> queue, int count) {
-        this.queue = queue;
+        this.queue = new LinkedList<>(queue);
         this.count = count;
     }
 
     public String getLastHappyCustomer() {
-        int remainingCount = count;
-        String lastHappy = null;
-        for (int i = 0; i < queue.size(); i++) {
-            Customer currentCustomer = queue.poll();
-            if (remainingCount > 0) {
-                lastHappy = currentCustomer.name();
-                remainingCount -= 1;
+        Customer lastHappy = null;
+        int i = 0;
+        for (Customer currentCustomer : queue) {
+            if (i < count) {
+                lastHappy = currentCustomer;
+                i++;
             }
-            queue.offer(currentCustomer);
         }
-        return lastHappy;
+        return lastHappy != null ? lastHappy.name() : null;
     }
 
     public String getFirstUpsetCustomer() {
-        int remainingCount = count;
-        String firstUpsetCustomer = null;
-        for (int i = 0; i < queue.size(); i++) {
-            Customer currentCustomer = queue.poll();
-            if (remainingCount == 0 && firstUpsetCustomer == null) {
-                firstUpsetCustomer = currentCustomer.name();
+        int i = 0;
+        for (Customer currentCustomer : queue) {
+            if (i >= count) {
+                return currentCustomer.name();
             }
-            if (remainingCount > 0) {
-                remainingCount -= 1;
-            }
-            queue.offer(currentCustomer);
+            i++;
         }
-        return firstUpsetCustomer;
+        return null;
     }
 }
