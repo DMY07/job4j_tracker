@@ -37,4 +37,4 @@ public class Citizen {
     }
 }
 
-/* т1 */
+/* т2 */
