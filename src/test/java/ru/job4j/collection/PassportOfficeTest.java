@@ -16,9 +16,11 @@ public class PassportOfficeTest {
     public void whenAddDuplicatePassportThenFalse() {
         PassportOffice office = new PassportOffice();
         Citizen citizen1 = new Citizen("2f44a", "Petr Arsentev");
-        Citizen citizen2 = new Citizen("2f44a", "Petr Arsentev");
+        Citizen citizen2 = new Citizen("2f44a", "Ryan Gosling");
         office.add(citizen1);
         boolean result = office.add(citizen2);
         assertThat(result).isFalse();
     }
 }
+
+/* т1 */
