@@ -5,7 +5,6 @@ import java.util.Queue;
 
 public class AppleStore {
     private final Queue<Customer> queue;
-
     private final int count;
 
     public AppleStore(Queue<Customer> queue, int count) {
@@ -15,23 +14,17 @@ public class AppleStore {
 
     public String getLastHappyCustomer() {
         Customer lastHappy = null;
-        int i = 0;
-        for (Customer currentCustomer : queue) {
-            if (i < count) {
-                lastHappy = currentCustomer;
-                i++;
-            }
+        Customer[] customers = queue.toArray(new Customer[0]);
+        for (int i = 0; i < count && i < customers.length; i++) {
+            lastHappy = customers[i];
         }
         return lastHappy != null ? lastHappy.name() : null;
     }
 
     public String getFirstUpsetCustomer() {
-        int i = 0;
-        for (Customer currentCustomer : queue) {
-            if (i >= count) {
-                return currentCustomer.name();
-            }
-            i++;
+        Customer[] customers = queue.toArray(new Customer[0]);
+        if (count < customers.length) {
+            return customers[count].name();
         }
         return null;
     }
