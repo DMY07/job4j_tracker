@@ -3,6 +3,25 @@ package ru.job4j.hashmap;
 import java.util.*;
 
 public class AnalyzeByMap {
+
+    private static class ScoreInfo {
+        private int totalScore;
+        private int count;
+
+        public void addScore(int score) {
+            this.totalScore += score;
+            this.count++;
+        }
+
+        public double getAverage() {
+            return count == 0 ? 0D : (double) totalScore / count;
+        }
+
+        public int getTotalScore() {
+            return totalScore;
+        }
+    }
+
     public static double averageScore(List<Pupil> pupils) {
         int totalScore = 0;
         int totalSubjects = 0;
@@ -30,21 +49,18 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-        Map<String, int[]> subjectScores = new LinkedHashMap<>();
+        Map<String, ScoreInfo> subjectScores = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                int[] scores = subjectScores.getOrDefault(subject.name(), new int[2]);
-                scores[0] += subject.score();
-                scores[1] += 1;
-                subjectScores.put(subject.name(), scores);
+                subjectScores.putIfAbsent(subject.name(), new ScoreInfo());
+                subjectScores.get(subject.name()).addScore(subject.score());
             }
         }
 
         List<Label> result = new ArrayList<>();
-        for (Map.Entry<String, int[]> entry : subjectScores.entrySet()) {
+        for (Map.Entry<String, ScoreInfo> entry : subjectScores.entrySet()) {
             String subjectName = entry.getKey();
-            int[] scores = entry.getValue();
-            double averageScore = scores[1] == 0 ? 0D : (double) scores[0] / scores[1];
+            double averageScore = entry.getValue().getAverage();
             result.add(new Label(subjectName, averageScore));
         }
         return result;
@@ -70,7 +86,9 @@ public class AnalyzeByMap {
         Map<String, Integer> subjectTotalScores = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjectTotalScores.put(subject.name(), subjectTotalScores.getOrDefault(subject.name(), 0) + subject.score());
+                subjectTotalScores.put(subject.name(),
+                        subjectTotalScores.getOrDefault(subject.name(), 0)
+                                + subject.score());
             }
         }
         Label bestSubject = null;
