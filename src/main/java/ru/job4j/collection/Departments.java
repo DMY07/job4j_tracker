@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Departments {
 
-    // Метод для заполнения пропущенных подразделений
     public static List<String> fillGaps(List<String> departments) {
         Set<String> temp = new LinkedHashSet<>();
         for (String value : departments) {
